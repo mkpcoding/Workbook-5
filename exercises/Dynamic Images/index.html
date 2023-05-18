@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+        <title>Images Demo</title>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.classless.min.css"
+        />
+  </head>
+  <body>
     <main>
-    <label for="imageList">Images</label>
-    <select name="images" id="imageList">
-    <option value="">Select Image... </option>
-    <option value="image/dog.jpg">a cute dog</option>
-    <option value="images/cat.jpg">a cute cat</option>
-</select> 
-<button> Add Image </button>
-<button> Clear Images</button>
-<div id="imagesDiv">
+      <label for="imageList">Images</label>
+      <select name="images" id="image-list">
+        <option value="">Select Image...</option>
+        <option value="images/dog.jpg">dog</option>
+        <option value="images/250.jpg">cat</option>
 
-</div>
-</main>
-<script>
-    "use strict"
-    
-</script>
-</body>
+       
+      </select>
+      <button id="display-button" onclick="displayImages()">Add Image</button>
+      <button id="clear-button" onclick="clearImages()">Clear Images</button>
+      <div id="imagesDiv"></div>
+    </main>
+    <script>
+        "use strict";
+        const selection = document.querySelector("#image-list");
+        // const displayButton = document.querySelector("#display-button");
+        // const clearButton = document.querySelector("#clear-button");   
+        const divImage = document.querySelector("#imagesDiv");
+      
+        function displayImages() {
+          let imageElement = document.createElement("img");
+          let imgSrc = selection.value;
+          imageElement.src = imgSrc;
+          divImage.appendChild(imageElement); 
+        }
+
+      
+        function clearImages() {
+
+          // we can achieve that by setting the innerHTML of the imagesDiv to an empty string.
+          imagesDiv.innerHTML = '';
+        }
+      </script>
+      
+  </body>
 </html>
